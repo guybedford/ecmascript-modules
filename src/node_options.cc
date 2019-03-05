@@ -236,6 +236,11 @@ EnvironmentOptionsParser::EnvironmentOptionsParser() {
             "(default: llhttp).",
             &EnvironmentOptions::http_parser,
             kAllowedInEnvironment);
+  AddOption("--es-module-specifier-resolution",
+            "Select extension resolution algorithm for es modules; "
+            "either 'none' or 'node'",
+            &EnvironmentOptions::es_module_specifier_resolution,
+            kAllowedInEnvironment);
   AddOption("--no-deprecation",
             "silence deprecation warnings",
             &EnvironmentOptions::no_deprecation,
