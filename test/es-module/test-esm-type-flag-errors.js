@@ -19,18 +19,18 @@ expect('', packageTypeModuleMain, 'package-type-module');
 expect('', packageTypeCommonJsMain, 'package-type-commonjs');
 expect('', packageWithoutTypeMain, 'package-without-type');
 
-// Check that running with --type and no package.json "type" works
-expect('--type=commonjs', packageWithoutTypeMain, 'package-without-type');
-expect('--type=module', packageWithoutTypeMain, 'package-without-type');
+// Check that running with --format and no package.json "type" works
+expect('--format=commonjs', packageWithoutTypeMain, 'package-without-type');
+expect('--format=module', packageWithoutTypeMain, 'package-without-type');
 expect('-m', packageWithoutTypeMain, 'package-without-type');
 
-// Check that running with conflicting --type flags throws errors
-expect('--type=commonjs', mjsFile, 'ERR_REQUIRE_ESM', true);
-expect('--type=module', cjsFile, 'ERR_TYPE_MISMATCH', true);
+// Check that running with conflicting --format flags throws errors
+expect('--format=commonjs', mjsFile, 'ERR_REQUIRE_ESM', true);
+expect('--format=module', cjsFile, 'ERR_TYPE_MISMATCH', true);
 expect('-m', cjsFile, 'ERR_TYPE_MISMATCH', true);
-expect('--type=commonjs', packageTypeModuleMain,
+expect('--format=commonjs', packageTypeModuleMain,
        'SyntaxError', true);
-expect('--type=module', packageTypeCommonJsMain,
+expect('--format=module', packageTypeCommonJsMain,
        'ERR_TYPE_MISMATCH', true);
 expect('-m', packageTypeCommonJsMain,
        'ERR_TYPE_MISMATCH', true);

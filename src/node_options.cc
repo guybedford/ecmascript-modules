@@ -308,11 +308,11 @@ EnvironmentOptionsParser::EnvironmentOptionsParser() {
             "show stack traces on process warnings",
             &EnvironmentOptions::trace_warnings,
             kAllowedInEnvironment);
-  AddOption("--type",
-            "top-level module type name",
-            &EnvironmentOptions::module_type,
+  AddOption("--format",
+            "top-level module format override",
+            &EnvironmentOptions::module_format,
             kAllowedInEnvironment);
-  AddAlias("-m", { "--type", "module" });
+  AddAlias("-m", { "--format", "module" });
 
   AddOption("--check",
             "syntax check script without executing",
